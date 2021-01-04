@@ -4,7 +4,7 @@ class Header extends Component {
   state = {};
   render() {
     return (
-      <div style={{ backgroundColor: "#17223b" }}>
+      <div id="header-div" style={{ backgroundColor: "#17223b" }}>
         <div class="container">
           <br></br>
           <br></br>
@@ -20,17 +20,22 @@ class Header extends Component {
               </h4>
               <br></br>
 
-              <div class="col-md-4">
+              <div class="col-md-6">
                 <div class="input-group">
                   <input
                     type="text"
+                    id="stock-input"
                     class="form-control"
                     placeholder="TSLA, AAPL, etc."
                     aria-label="TSLA, AAPL, etc."
                     aria-describedby="basic-addon2"
                   />
                   <div class="input-group-append" style={{ marginLeft: 5 }}>
-                    <button type="button" class="btn btn-primary" style={{}}>
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      onClick={this.props.handlePredictStock}
+                    >
                       Predict!
                     </button>
                   </div>

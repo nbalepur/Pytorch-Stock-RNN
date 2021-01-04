@@ -10,3 +10,59 @@
   background-color: #d83853;
   border-color: #d83853;
 }
+
+.hover-image:hover {
+  animation: none;
+}
+
+.hover-image {
+  margin-top: 0px;
+  animation: MoveUpDown 1.5s linear infinite;
+}
+
+.hover-image-delay {
+  margin-top: 10px;
+  animation: MoveDownUp 1.5s linear infinite;
+}
+
+@keyframes MoveDownUp {
+  50% {
+    margin-top: 0px;
+  }
+}
+
+@keyframes MoveUpDown {
+  50% {
+    margin-top: 10px;
+  }
+}
+
+.invalid-msg {
+  animation: fadein 1s;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.nav-link {
+  color: white;
+  font-weight: 400;
+}
+
+.nav-link:hover {
+  color: #e94560;
+}
+
+.nav-link-active {
+  background-color: #e94560;
+}
+
+.nav-link-active:hover {
+  color: white !important;
+}
