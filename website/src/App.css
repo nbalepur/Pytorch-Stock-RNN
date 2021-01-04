@@ -25,6 +25,10 @@
   animation: MoveDownUp 1.5s linear infinite;
 }
 
+.hover-image-delay:hover {
+  animation: none;
+}
+
 @keyframes MoveDownUp {
   50% {
     margin-top: 0px;
@@ -65,4 +69,16 @@
 
 .nav-link-active:hover {
   color: white !important;
+}
+
+.stock-link {
+  color: #e94560;
+}
+
+.stock-link:hover {
+  color: #d83853;
+}
+
+.spinner-border {
+  color: #e94560 !important;
 }

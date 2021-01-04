@@ -14,6 +14,8 @@ class App extends Component {
   state = {
     componentState: "begin",
     data: null,
+    stock: "TSLA",
+    loading: false,
   };
 
   componentDidMount() {
@@ -21,6 +23,9 @@ class App extends Component {
   }
 
   handleAPIRequest = (stock) => {
+    this.setState({ loading: true });
+    this.setState({ stock: stock });
+
     axios.get("http://127.0.0.1:5000/predict/" + stock).then((response) => {
       let data = response.data;
 
@@ -30,6 +35,8 @@ class App extends Component {
         this.setState({ data: data });
         this.setState({ componentState: "valid" });
       }
+
+      this.setState({ loading: false });
     });
   };
 
@@ -54,18 +61,23 @@ class App extends Component {
     } else if (compState === "nonalpha") {
       return <Invalid label="alphabetical" />;
     } else if (compState === "begin") {
-      return <Stock />;
+      return <InfoTiles />;
     } else if (compState === "ticker") {
-      return <ErrorTicker />;
+      return <ErrorTicker stock={this.state.stock} />;
     } else {
-      return <Stock data={this.state.data} />;
+      return <Stock data={this.state.data} stock={this.state.stock} />;
     }
   };
 
   render() {
     return (
       <div>
-        <Header handlePredictStock={this.handlePredictStock} />
+        <Header
+          handlePredictStock={this.handlePredictStock}
+          loading={this.state.loading}
+          stock={this.state.stock}
+          isValid={this.state.componentState === "valid"}
+        />
         {this.getComponentFromState()}
       </div>
     );

@@ -1,5 +1,8 @@
 from flask import Flask
+from flask_cors import CORS
+
 app = Flask(__name__)
+CORS(app)
 
 import torch
 import torch.nn as nn
@@ -8,6 +11,8 @@ import pandas as pd
 import numpy as np
 
 from api_key import get_api_key
+
+
 
 
 class GRU(nn.Module):
@@ -45,8 +50,18 @@ def hello_world(stock):
 
     # parse the text
     txt = response.text.split("\r\n")
+
+    # error 1: too many api requests
+    if txt == ['{\n    "Note": "Thank you for using Alpha Vantage! Our standard API call frequency is 5 calls per minute and 500 calls per day. Please visit https://www.alphavantage.co/premium/ if you would like to target a higher API call frequency."\n}']:
+        return({"error_exists" : True, "error": "api"})
+
     data = [t.split(",") for t in txt]
     data.reverse()
+
+    # error 2: ticker symbol doesn't exist
+    if len(data) < 5: 
+        return({"error_exists" : True, "error": "ticker"})
+    
 
     # convert list of lists into pandas dataframe
     df = pd.DataFrame(data[1:-1])
@@ -155,23 +170,37 @@ def hello_world(stock):
         # push and pop from the window accordingly
         window = window[1:]
         window = torch.cat((window, torch.from_numpy(np.array([[curr_pred]]))))
-    
+
+    # create future points for JSON
+    future_points = []
+    for i in range(len(future_preds)):
+        future_points.append({"x": i + all_act_vals.size, "y": np.array(future_preds[i]).astype(np.float64).flatten().tolist()[0]})
+
     return {
+        "error_exists": False,
         "train" : {
+            "labels": df["time"].to_numpy().tolist()[0:train_size],
             "pred": pred_train.astype(np.float64).flatten().tolist(),
             "act": act_train.astype(np.float64).flatten().tolist()
         },
         "test" : {
+            "labels": df["time"].to_numpy().tolist()[train_size:df.shape[0] - 20],
             "pred": pred_test.astype(np.float64).flatten().tolist(),
             "act": act_test.astype(np.float64).flatten().tolist()
         },
         "all" : {
+            "labels": df["time"].to_numpy().tolist()[0:df.shape[0] - 20],
             "pred": all_pred_vals.astype(np.float64).flatten().tolist(),
             "act": all_act_vals.astype(np.float64).flatten().tolist()
         },
-        "future": np.array(future_preds).astype(np.float64).tolist(),
+        "future": {
+            "values" : future_points,
+            "labels" : np.arange(close_data_raw.shape[0] + num_intervals).tolist(),
+        },
         "loss" : {
             "values": loss_vals.astype(np.float64).tolist(),
-            "final": round(loss_vals.astype(np.float64).tolist()[-1], 6)
+            "final": round(loss_vals.astype(np.float64).tolist()[-1], 6),
+            "labels": np.arange(0, 100).tolist(),
         }
+
     }

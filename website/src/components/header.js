@@ -47,6 +47,49 @@ class Header extends Component {
           <br></br>
           <br></br>
           <br></br>
+          {this.props.loading && (
+            <div class="col-md-12" align="center">
+              <h2 class="sr-only" style={{ color: "white" }}>
+                Training Neural Network for{" "}
+                <a
+                  class="stock-link"
+                  href={
+                    "https://www.marketwatch.com/investing/fund/" +
+                    this.props.stock.toLowerCase()
+                  }
+                  target="blank"
+                  rel="noreferrer"
+                >
+                  {this.props.stock.toUpperCase()}
+                </a>{" "}
+              </h2>{" "}
+              <span class="spinner-border"></span>
+              <br></br>
+              <br></br>
+            </div>
+          )}
+          {!this.props.loading && this.props.isValid && (
+            <div class="col-md-12" align="center">
+              <h2 style={{ color: "white" }}>
+                Showing Results for:{" "}
+                <span>
+                  <a
+                    class="stock-link"
+                    href={
+                      "https://www.marketwatch.com/investing/fund/" +
+                      this.props.stock.toLowerCase()
+                    }
+                    target="blank"
+                    rel="noreferrer"
+                  >
+                    {this.props.stock.toUpperCase()}
+                  </a>
+                </span>{" "}
+              </h2>{" "}
+              <br></br>
+              <br></br>
+            </div>
+          )}
         </div>
       </div>
     );

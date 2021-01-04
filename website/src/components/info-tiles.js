@@ -11,6 +11,7 @@ class InfoTiles extends Component {
     return (
       <div class="row">
         <div class="col-md-4" align="center">
+          <br />
           <img
             class="hover-image"
             src={Brain}
@@ -19,6 +20,7 @@ class InfoTiles extends Component {
           ></img>
         </div>
         <div class="col-md-4" align="center">
+          <br />
           <img
             class="hover-image-delay"
             src={Stock}
@@ -27,6 +29,7 @@ class InfoTiles extends Component {
           ></img>
         </div>
         <div class="col-md-4" align="center">
+          <br />
           <img
             class="hover-image"
             src={Predict}

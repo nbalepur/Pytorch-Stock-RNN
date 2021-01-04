@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 
-import { test_data } from "./test.js";
-
 import Loss from "./loss.js";
 import Predict from "./predict.js";
 import TrainTest from "./traintest.js";
@@ -10,10 +8,6 @@ class Stock extends Component {
   state = {
     display: "loss",
   };
-
-  componentDidMount() {
-    console.log(test_data);
-  }
 
   render() {
     return (
@@ -65,17 +59,22 @@ class Stock extends Component {
         <br />
         {this.state.display === "loss" ? (
           <Loss
-            values={test_data.loss.values}
-            labels={test_data.loss.labels}
-            loss={test_data.loss.final}
+            values={this.props.data.loss.values}
+            labels={this.props.data.loss.labels}
+            loss={this.props.data.loss.final}
           />
         ) : this.state.display === "predict" ? (
-          <Predict />
+          <Predict
+            past={this.props.data.all.act}
+            future={this.props.data.future.values}
+            labels={this.props.data.future.labels}
+            stock={this.props.stock}
+          />
         ) : (
           <TrainTest
-            all={test_data.all}
-            train={test_data.train}
-            test={test_data.test}
+            all={this.props.data.all}
+            train={this.props.data.train}
+            test={this.props.data.test}
           />
         )}
 
