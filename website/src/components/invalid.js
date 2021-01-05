@@ -13,7 +13,7 @@ class Invalid extends Component {
         <div class="col-sm-12" align="center">
           <br />
           <br />
-          <h2 style={{ color: "white" }} class="invalid-msg">
+          <h2 style={{ color: "white" }}>
             Please enter {this.isVowel(this.props.label.charAt(0)) ? "an" : "a"}{" "}
             <span style={{ color: "#d83853" }}>{this.props.label}</span> input
           </h2>

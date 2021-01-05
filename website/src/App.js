@@ -7,6 +7,7 @@ import InfoTiles from "./components/info-tiles.js";
 import Invalid from "./components/invalid.js";
 import ErrorTicker from "./components/ticker-error.js";
 import Stock from "./components/stock.js";
+import TimeOut from "./components/timeout.js";
 
 import axios from "axios";
 
@@ -56,12 +57,18 @@ class App extends Component {
   getComponentFromState = () => {
     let compState = this.state.componentState;
 
+    if (this.state.loading) {
+      return "";
+    }
+
     if (compState === "empty") {
       return <Invalid label="non-empty" />;
     } else if (compState === "nonalpha") {
       return <Invalid label="alphabetical" />;
     } else if (compState === "begin") {
       return <InfoTiles />;
+    } else if (compState === "api") {
+      return <TimeOut />;
     } else if (compState === "ticker") {
       return <ErrorTicker stock={this.state.stock} />;
     } else {

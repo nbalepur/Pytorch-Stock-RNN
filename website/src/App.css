@@ -12,7 +12,7 @@
 }
 
 .hover-image:hover {
-  animation: none;
+  transform: scale(1.1);
 }
 
 .hover-image {
@@ -26,7 +26,7 @@
 }
 
 .hover-image-delay:hover {
-  animation: none;
+  transform: scale(1.05);
 }
 
 @keyframes MoveDownUp {
@@ -81,4 +81,28 @@
 
 .spinner-border {
   color: #e94560 !important;
+}
+
+.blinking {
+  animation: blink-animation 1s step-start 0s infinite;
+  -webkit-animation: blink-animation 1s step-start 0s infinite;
+}
+
+@keyframes blink-animation {
+  50% {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes blink-animation {
+  50% {
+    opacity: 0;
+  }
+}
+
+.grow {
+  transition: transform 0.2s;
+}
+
+.grow:hover {
+  transform: scale(1.25);
 }

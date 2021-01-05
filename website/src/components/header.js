@@ -1,10 +1,30 @@
 import React, { Component } from "react";
 
+import Info from "../images/info.png";
+
 class Header extends Component {
   state = {};
   render() {
     return (
       <div id="header-div" style={{ backgroundColor: "#17223b" }}>
+        <a
+          href="https://github.com/nbalepur/Pytorch-Stock-RNN"
+          target="blank"
+          rel="noreferrer"
+        >
+          <img
+            class="grow"
+            style={{
+              float: "right",
+              marginTop: 15,
+              marginRight: 25,
+              width: 30,
+              height: 30,
+            }}
+            src={Info}
+            alt="info"
+          ></img>
+        </a>
         <div class="container">
           <br></br>
           <br></br>

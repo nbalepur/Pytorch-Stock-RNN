@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_cors import CORS
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='./website/build', static_url_path='/')
 CORS(app)
 
 import torch
@@ -11,9 +11,6 @@ import pandas as pd
 import numpy as np
 
 from api_key import get_api_key
-
-
-
 
 class GRU(nn.Module):
     def __init__(self, input_dim, hidden_dim, num_layers, output_dim):
@@ -37,6 +34,11 @@ class GRU(nn.Module):
         
         # predict with the Linear network
         return self.lin(out[:, -1, :]) 
+
+
+@app.route('/')
+def index():
+    return app.send_static_file('index.html')
 
 @app.route("/predict/<stock>")
 def hello_world(stock):
