@@ -1,3 +1,4 @@
 # Pytorch Stock RNN
 
-This repository aims to use `Pytorch` to predict future stock prices using a Recurrent Neural Network
+This project's goal was to make predictions for stock closing prices using a Recurrent Neural Network and `Pytorch`
+
