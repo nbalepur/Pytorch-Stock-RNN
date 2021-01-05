@@ -4,6 +4,17 @@ import Info from "../images/info.png";
 
 class Header extends Component {
   state = {};
+
+  getLoadingMessage = () => {
+    if (this.props.loadingState === "data") {
+      return "Retrieving Data for ";
+    } else if (this.props.loadingState === "train") {
+      return "Training Neural Network for ";
+    } else {
+      return "Making Predictions for ";
+    }
+  };
+
   render() {
     return (
       <div id="header-div" style={{ backgroundColor: "#17223b" }}>
@@ -70,7 +81,7 @@ class Header extends Component {
           {this.props.loading && (
             <div class="col-md-12" align="center">
               <h2 class="sr-only" style={{ color: "white" }}>
-                Training Neural Network for{" "}
+                {this.getLoadingMessage()}
                 <a
                   class="stock-link"
                   href={
@@ -91,7 +102,7 @@ class Header extends Component {
           {!this.props.loading && this.props.isValid && (
             <div class="col-md-12" align="center">
               <h2 style={{ color: "white" }}>
-                Showing Results for:{" "}
+                Showing Results for{" "}
                 <span>
                   <a
                     class="stock-link"

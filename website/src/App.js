@@ -17,27 +17,52 @@ class App extends Component {
     data: null,
     stock: "TSLA",
     loading: false,
+    loadingState: "data",
+    url: "https://rnn-stock-predictor.herokuapp.com",
   };
 
   componentDidMount() {
     document.body.style = "background: #1a1a2e";
   }
 
-  handleAPIRequest = (stock) => {
+  handleAPIPredictRequest = () => {
+    this.setState({ loadingState: "predict" });
+    axios.get(this.state.url + "/predict").then((response) => {
+      let data = response.data;
+
+      this.setState({ data: data });
+      this.setState({ componentState: "valid" });
+
+      this.setState({ loading: false });
+    });
+  };
+
+  handleAPITrainRequest = () => {
+    this.setState({ loadingState: "train" });
+    axios.get(this.state.url + "/train").then((response) => {
+      let data = response.data;
+
+      if (!data.error_exists) {
+        this.handleAPIPredictRequest();
+      }
+    });
+  };
+
+  handleAPIDataRequest = (stock) => {
     this.setState({ loading: true });
+    this.setState({ loadingState: "data" });
+
     this.setState({ stock: stock });
 
-    axios.get("http://127.0.0.1:5000/predict/" + stock).then((response) => {
+    axios.post(this.state.url + "/data", { stock: stock }).then((response) => {
       let data = response.data;
 
       if (data.error_exists) {
         this.setState({ componentState: data.error });
+        this.setState({ loading: false });
       } else {
-        this.setState({ data: data });
-        this.setState({ componentState: "valid" });
+        this.handleAPITrainRequest();
       }
-
-      this.setState({ loading: false });
     });
   };
 
@@ -50,7 +75,7 @@ class App extends Component {
     } else if (!/^[a-zA-Z]+$/.test(stock)) {
       this.setState({ componentState: "nonalpha" });
     } else {
-      this.handleAPIRequest(stock);
+      this.handleAPIDataRequest(stock);
     }
   };
 
@@ -82,6 +107,7 @@ class App extends Component {
         <Header
           handlePredictStock={this.handlePredictStock}
           loading={this.state.loading}
+          loadingState={this.state.loadingState}
           stock={this.state.stock}
           isValid={this.state.componentState === "valid"}
         />

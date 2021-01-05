@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 from flask_cors import CORS
 
 app = Flask(__name__, static_folder='./website/build', static_url_path='/')
@@ -40,8 +40,36 @@ class GRU(nn.Module):
 def index():
     return app.send_static_file('index.html')
 
-@app.route("/predict/<stock>")
-def hello_world(stock):
+
+df = None
+test_size = None
+train_size = None
+x_train = None
+x_test = None
+y_train = None
+y_test = None
+stock = None
+close_data_raw = None
+
+model = None
+loss_vals = None
+
+
+
+@app.route("/data", methods = ["POST"])
+def getData():
+
+    global df
+    global test_size
+    global train_size
+    global x_train
+    global x_test
+    global y_train
+    global y_test
+    global stock
+    global close_data_raw
+
+    stock = request.json["stock"]
 
     # get the api key
     api_key = get_api_key()
@@ -107,6 +135,24 @@ def hello_world(stock):
     y_train = torch.from_numpy(y_train_arr).type(torch.Tensor)
     y_test = torch.from_numpy(y_test_arr).type(torch.Tensor)
 
+    return {"error_exists" : False}
+
+@app.route("/train")
+def trainNN():
+
+    global df
+    global test_size
+    global train_size
+    global x_train
+    global x_test
+    global y_train
+    global y_test
+    global stock
+    global close_data_raw
+
+    global model
+    global loss_vals
+
     # declare needed variables
     input_dim = 1
     hidden_dim = 32
@@ -141,7 +187,24 @@ def hello_world(stock):
         loss.backward()
         optimizer.step()
 
-    
+    return {"error_exists" : False}
+
+@app.route("/predict")
+def predict():
+
+    global df
+    global test_size
+    global train_size
+    global x_train
+    global x_test
+    global y_train
+    global y_test
+    global stock
+    global close_data_raw
+
+    global model
+    global loss_vals
+
     # obtain the training data
     pred_train = model(x_train).detach().numpy()
     act_train = y_train.detach().numpy()
@@ -204,5 +267,4 @@ def hello_world(stock):
             "final": round(loss_vals.astype(np.float64).tolist()[-1], 6),
             "labels": np.arange(0, 100).tolist(),
         }
-
     }
