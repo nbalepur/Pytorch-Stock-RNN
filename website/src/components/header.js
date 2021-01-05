@@ -94,7 +94,22 @@ class Header extends Component {
                   {this.props.stock.toUpperCase()}
                 </a>{" "}
               </h2>{" "}
-              <span class="spinner-border"></span>
+              <br />
+              <div class="progress">
+                <div
+                  class="progress-bar"
+                  role="progressbar"
+                  style={{
+                    width: Math.round(this.props.progress) + "%",
+                    backgroundColor: "#e94560",
+                  }}
+                  aria-valuenow={Math.round(this.props.progress)}
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                >
+                  {Math.round(this.props.progress) + "%"}
+                </div>
+              </div>
               <br></br>
               <br></br>
             </div>

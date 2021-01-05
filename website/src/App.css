@@ -11,10 +11,6 @@
   border-color: #d83853;
 }
 
-.hover-image:hover {
-  transform: scale(1.1);
-}
-
 .hover-image {
   margin-top: 0px;
   animation: MoveUpDown 1.5s linear infinite;
@@ -23,10 +19,6 @@
 .hover-image-delay {
   margin-top: 10px;
   animation: MoveDownUp 1.5s linear infinite;
-}
-
-.hover-image-delay:hover {
-  transform: scale(1.05);
 }
 
 @keyframes MoveDownUp {

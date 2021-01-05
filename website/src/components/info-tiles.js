@@ -9,33 +9,35 @@ class InfoTiles extends Component {
 
   render() {
     return (
-      <div class="row">
-        <div class="col-md-4" align="center">
-          <br />
-          <img
-            class="hover-image"
-            src={Brain}
-            alt="brain"
-            style={{ width: 250, height: 250 }}
-          ></img>
-        </div>
-        <div class="col-md-4" align="center">
-          <br />
-          <img
-            class="hover-image-delay"
-            src={Stock}
-            alt="stock"
-            style={{ width: 250, height: 250 }}
-          ></img>
-        </div>
-        <div class="col-md-4" align="center">
-          <br />
-          <img
-            class="hover-image"
-            src={Predict}
-            alt="predict"
-            style={{ width: 250, height: 250 }}
-          ></img>
+      <div>
+        <div class="row">
+          <div class="col-md-4" align="center">
+            <br />
+            <img
+              class="hover-image"
+              src={Brain}
+              alt="brain"
+              style={{ width: 250, height: 250 }}
+            ></img>
+          </div>
+          <div class="col-md-4" align="center">
+            <br />
+            <img
+              class="hover-image-delay"
+              src={Stock}
+              alt="stock"
+              style={{ width: 250, height: 250 }}
+            ></img>
+          </div>
+          <div class="col-md-4" align="center">
+            <br />
+            <img
+              class="hover-image"
+              src={Predict}
+              alt="predict"
+              style={{ width: 250, height: 250 }}
+            ></img>
+          </div>
         </div>
       </div>
     );

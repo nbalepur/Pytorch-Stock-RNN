@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, session
 from flask_cors import CORS
 
 app = Flask(__name__, static_folder='./website/build', static_url_path='/')
@@ -54,7 +54,17 @@ close_data_raw = None
 model = None
 loss_vals = None
 
+input_dim = None
+hidden_dim = None
+num_layers = None
+output_dim = None
+num_epochs = None
+sample_size = None
 
+optimizer = None
+loss_func = None
+
+epoch = None
 
 @app.route("/data", methods = ["POST"])
 def getData():
@@ -68,6 +78,20 @@ def getData():
     global y_test
     global stock
     global close_data_raw
+
+    global input_dim
+    global hidden_dim
+    global num_layers
+    global output_dim
+    global num_epochs
+    global sample_size
+    global model
+    global optimizer
+    global loss_func
+    global loss_vals
+    global epoch
+
+    epoch = 0
 
     stock = request.json["stock"]
 
@@ -135,24 +159,6 @@ def getData():
     y_train = torch.from_numpy(y_train_arr).type(torch.Tensor)
     y_test = torch.from_numpy(y_test_arr).type(torch.Tensor)
 
-    return {"error_exists" : False}
-
-@app.route("/train")
-def trainNN():
-
-    global df
-    global test_size
-    global train_size
-    global x_train
-    global x_test
-    global y_train
-    global y_test
-    global stock
-    global close_data_raw
-
-    global model
-    global loss_vals
-
     # declare needed variables
     input_dim = 1
     hidden_dim = 32
@@ -173,8 +179,39 @@ def trainNN():
     # declare needed variables
     loss_vals = np.zeros(num_epochs)
 
+    return {"error_exists" : False}
+
+@app.route("/train")
+def trainNN():
+
+    global df
+    global test_size
+    global train_size
+    global x_train
+    global x_test
+    global y_train
+    global y_test
+    global stock
+    global close_data_raw
+
+    global model
+    global loss_vals
+
+    global input_dim
+    global hidden_dim
+    global num_layers
+    global output_dim
+    global num_epochs
+    global sample_size
+    global model
+    global optimizer
+    global loss_func
+
+    global epoch
+
+
     # train the model
-    for epoch in range(num_epochs):
+    for e in range(5):
         # predict with the model
         y_train_pred = model(x_train)
         
@@ -186,6 +223,8 @@ def trainNN():
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
+
+        epoch += 1
 
     return {"error_exists" : False}
 

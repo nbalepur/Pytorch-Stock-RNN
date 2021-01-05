@@ -18,7 +18,9 @@ class App extends Component {
     stock: "TSLA",
     loading: false,
     loadingState: "data",
-    url: "https://rnn-stock-predictor.herokuapp.com",
+    url: "",
+    progress: 0,
+    progressInc: 4.54,
   };
 
   componentDidMount() {
@@ -26,6 +28,8 @@ class App extends Component {
   }
 
   handleAPIPredictRequest = () => {
+    this.setState({ progress: this.state.progress + this.state.progressInc });
+
     this.setState({ loadingState: "predict" });
     axios.get(this.state.url + "/predict").then((response) => {
       let data = response.data;
@@ -37,22 +41,34 @@ class App extends Component {
     });
   };
 
-  handleAPITrainRequest = () => {
-    this.setState({ loadingState: "train" });
+  handleAPITrainRequest = async (count) => {
+    if (count === 0) {
+      this.setState({ loadingState: "train" });
+    }
+
+    if (count === 20) {
+      this.handleAPIPredictRequest();
+    }
+
+    this.setState({ progress: this.state.progress + this.state.progressInc });
+
     axios.get(this.state.url + "/train").then((response) => {
       let data = response.data;
 
       if (!data.error_exists) {
-        this.handleAPIPredictRequest();
+        this.handleAPITrainRequest(count + 1);
       }
     });
   };
 
   handleAPIDataRequest = (stock) => {
+    this.setState({ progress: 0 });
     this.setState({ loading: true });
     this.setState({ loadingState: "data" });
 
     this.setState({ stock: stock });
+
+    this.setState({ progress: this.state.progress + this.state.progressInc });
 
     axios.post(this.state.url + "/data", { stock: stock }).then((response) => {
       let data = response.data;
@@ -61,7 +77,7 @@ class App extends Component {
         this.setState({ componentState: data.error });
         this.setState({ loading: false });
       } else {
-        this.handleAPITrainRequest();
+        this.handleAPITrainRequest(0);
       }
     });
   };
@@ -110,6 +126,7 @@ class App extends Component {
           loadingState={this.state.loadingState}
           stock={this.state.stock}
           isValid={this.state.componentState === "valid"}
+          progress={this.state.progress}
         />
         {this.getComponentFromState()}
       </div>
