@@ -6,7 +6,23 @@ This project's goal was to make predictions for stock closing prices using a Rec
 
 ![thumbnail](./demo/thumbnail.PNG)
 
+### Table of Contents
+- [Background Info](#bg) 
+- [Getting Started](#start)  
+- [Website Features](#features)
+  - [Input Checking](#input)
+  - [Invalid Stock](#invalid)
+  - [API Overusage](#api)
+  - [Loss Visualization](#loss)
+  - [Training and Testing Sets](#sets)
+  - [Future Predictions](#future)
+- [Demo](#demo)
+- [Acknowledgement](#acknowledgement)
+- [Author / Contact](#author)
+
 <br />
+
+<a name = "bg"/>
 
 ## Project Background Information
 
