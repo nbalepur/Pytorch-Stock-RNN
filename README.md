@@ -74,6 +74,17 @@ This will open up the website in locally in your default browser
 
 ## Website Features
 
+The application's features can be broken down as follows:
+
+- [Input Checking](#input)
+- [Invalid Stock](#invalid)
+- [API Overusage](#api)
+- [Loss Visualization](#loss)
+- [Training and Testing Sets](#sets)
+- [Future Predictions](#future)
+
+<br />
+
 <a name = "input"/>
 
 ### Input Checking
@@ -165,7 +176,7 @@ Additionally, I want to spend more time learning about deployment so I can succe
 <br />
 <br />
 
-<a name = "acknowledgements"/>
+<a name = "acknowledgement"/>
 
 ## Acknowledgements
 
