@@ -158,7 +158,7 @@ You can also see future short-term predictions for the chosen stock. Below is a 
 
 ## Demo
 
-[insert video]
+[![Demo](https://i.imgur.com/vKb2F1B.png)](https://drive.google.com/file/d/1xUtYf-f4QqhQENacb948LkGGM3uY3s3b/preview)
 
 <br />
 <br />
