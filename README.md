@@ -37,12 +37,15 @@ flask run
 This will open up the website in locally in your default browser
 
 <br />
+<br />
 
 ## Website Features
 
-### Invalid Inputs
+### Input Checking
 
 If an invalid input is typed for the stock ticker symbol, the website will alert you with one of the following messages:
+
+<br />
 
 #### Empty Input Error
 
@@ -52,7 +55,17 @@ If an invalid input is typed for the stock ticker symbol, the website will alert
 
 ![nonalpha](./demo/alphabetical.PNG)
 
-### API Usage
+<br />
+
+### Invalid Stock
+
+If your stock symbol is mispelled or doesn't exist, the website will let you know:
+
+![invalid stock](./demo/invalidstock.PNG)
+
+<br />
+
+### API Overusage
 
 If the API from [Alpha Vantage](https://www.alphavantage.co) is overrused, you will be alerted, shown below:
 
@@ -60,11 +73,15 @@ If the API from [Alpha Vantage](https://www.alphavantage.co) is overrused, you w
 
 Once the timer is up, you are free to make API calls once again
 
+<br />
+
 ### Loss Visualization
 
 Once a valid input has been selected, you can view the loss development of the neural network under `Loss Visualization`. A sample loss visualization for `TSLA` can be seen below:
 
 ![loss](./demo/loss.PNG)
+
+<br />
 
 ### Training and Testing Sets
 
@@ -72,12 +89,15 @@ Under this tab, you can see the model's predictions on the training and testing 
 
 ![traintest](./demo/traintest.PNG)
 
+<br />
+
 ### Future Predictions
 
 You can also see future short-term predictions for the chosen stock. Below is a visualization of the future predictions for `TSLA`:
 
 ![future](./demo/future.PNG)
 
+<br />
 <br />
 
 ## Demo
