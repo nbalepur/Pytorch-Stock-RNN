@@ -17,7 +17,8 @@ This project's goal was to make predictions for stock closing prices using a Rec
   - [Training and Testing Sets](#sets)
   - [Future Predictions](#future)
 - [Demo](#demo)
-- [Acknowledgement](#acknowledgement)
+- [Future Work  / Conclusion](#conclusion)
+- [Acknowledgements](#acknowledgement)
 - [Author / Contact](#author)
 
 <br />
@@ -35,6 +36,8 @@ The basic idea is that this network will first train a network taking in a fixed
 *Note: The reason a `GRU` was chosen instead of an `LSTM` was for performance reasons during deployment to `Flask`* 
 
 <br />
+
+<a name = "start"/>
 
 ## Getting Started
 
@@ -67,7 +70,11 @@ This will open up the website in locally in your default browser
 <br />
 <br />
 
+<a name = "features"/>
+
 ## Website Features
+
+<a name = "input"/>
 
 ### Input Checking
 
@@ -83,6 +90,8 @@ If an invalid input is typed for the stock ticker symbol, the website will alert
 
 <br />
 
+<a name = "invalid"/>
+
 ### Invalid Stock
 
 If your stock symbol is mispelled or doesn't exist, the website will let you know:
@@ -90,6 +99,8 @@ If your stock symbol is mispelled or doesn't exist, the website will let you kno
 ![invalid stock](./demo/invalidstock.PNG)
 
 <br />
+
+<a name = "api"/>
 
 ### API Overusage
 
@@ -101,6 +112,8 @@ Once the timer is up, you are free to make API calls once again
 
 <br />
 
+<a name = "loss"/>
+
 ### Loss Visualization
 
 Once a valid input has been selected, you can view the loss development of the neural network under `Loss Visualization`. A sample loss visualization for `TSLA` can be seen below:
@@ -109,6 +122,8 @@ Once a valid input has been selected, you can view the loss development of the n
 
 <br />
 
+<a name = "sets"/>
+
 ### Training and Testing Sets
 
 Under this tab, you can see the model's predictions on the training and testing sets. An example of this for `TSLA` can be seen below:
@@ -116,6 +131,8 @@ Under this tab, you can see the model's predictions on the training and testing 
 ![traintest](./demo/traintest.PNG)
 
 <br />
+
+<a name = "future"/>
 
 ### Future Predictions
 
@@ -126,12 +143,16 @@ You can also see future short-term predictions for the chosen stock. Below is a 
 <br />
 <br />
 
+<a name = "demo"/>
+
 ## Demo
 
 [insert video]
 
 <br />
 <br />
+
+<a name = "conclusion"/>
 
 ## Future Work and Conclusion
 
@@ -144,12 +165,16 @@ Additionally, I want to spend more time learning about deployment so I can succe
 <br />
 <br />
 
+<a name = "acknowledgements"/>
+
 ## Acknowledgements
 
 This project relied heavily on this paper by Rodolfo Saldanha, so thank you for putting out this information and making it accessible for beginners!
 
 <br />
 <br />
+
+<a name = "author"/>
 
 ## Author Info / Contact
 
