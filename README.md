@@ -20,7 +20,7 @@ Alternatively, you can simply view the results of the Jupyter Notebook [here](ht
 
 ### Flask Web App
 
-Before you are able to run the web server, you will need to install `Python` and `Flask`. Instructions on how to set up `Flask` with `VS Code` can be found [here](https://code.visualstudio.com/docs/python/tutorial-flask)
+Before you are able to run the web server, you will need to install `Python` and `Flask`. Instructions on how to set up `Flask` with `Visual Studio Code` can be found [here](https://code.visualstudio.com/docs/python/tutorial-flask)
 
 Now, run the following command to get the files on your machine
 
@@ -44,8 +44,6 @@ This will open up the website in locally in your default browser
 ### Input Checking
 
 If an invalid input is typed for the stock ticker symbol, the website will alert you with one of the following messages:
-
-<br />
 
 #### Empty Input Error
 
