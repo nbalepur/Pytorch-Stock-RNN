@@ -6,6 +6,8 @@ This project's goal was to make predictions for stock closing prices using a Rec
 
 ![thumbnail](./demo/thumbnail.PNG)
 
+<br />
+
 ## Getting Started
 
 To get this project running on your machine, follow the instructions below
@@ -33,6 +35,8 @@ flask run
 ```
 
 This will open up the website in locally in your default browser
+
+<br />
 
 ## Website Features
 
@@ -73,3 +77,7 @@ Under this tab, you can see the model's predictions on the training and testing 
 You can also see future short-term predictions for the chosen stock. Below is a visualization of the future predictions for `TSLA`:
 
 ![future](./demo/future.PNG)
+
+<br />
+
+## Demo
