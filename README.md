@@ -8,6 +8,18 @@ This project's goal was to make predictions for stock closing prices using a Rec
 
 <br />
 
+## Project Background Information
+
+Predicting stocks is a very difficult task that experts have been trying to solve for a long time. Obviously there is no way to perfectly predict the stock market behvaior, as it is extremely volatile, but there are methods we can use to get close. In this project, we take a look at a `GRU`, a type of [Recurrent Neural Network](https://en.wikipedia.org/wiki/Recurrent_neural_network) to make our predictions:
+
+The basic idea is that this network will first train a network taking in a fixed window size and then output a single prediction value. This value is then passed through a normal linear neural network to obtain a final projection. As time goes on, Recurrent Neural Networks are subject to the [Vanishing Gradient Problem](https://en.wikipedia.org/wiki/Vanishing_gradient_problem), meaning that the influence of past points are not as heavy as they should be. A `GRU`, or [Gated Recurrent Unit](https://en.wikipedia.org/wiki/Gated_recurrent_unit) is a type of Recurrent Neural Network that addresses this problem. The neural network structure can be found below:
+
+![GRU](./images/GRU.png)
+
+*Note: The reason a `GRU` was chosen instead of an `LSTM` was for performance reasons during deployment to `Flask`* 
+
+<br />
+
 ## Getting Started
 
 To get this project running on your machine, follow the instructions below
@@ -99,3 +111,34 @@ You can also see future short-term predictions for the chosen stock. Below is a 
 <br />
 
 ## Demo
+
+[insert video]
+
+<br />
+<br />
+
+## Future Work and Conclusion
+
+In conclusion, I learned a lot from this project! This was my first real experience with `Pytorch`, and I was extremely happy with its ease of transition from `numpy`. I obtained more hands-on experience with Neural Networks and Machine Learning, and this was my first time ever working with a Recurrent Neural Network. I learned that the `LTSM` and `GRU` networks each have their own advantanges and disadvantages, and it was interesting to see the tradeoffs between the models
+
+In the future, I hope I will be able to further expand upon this project to make the future predictions more accurate and robust. Right now, the `GRU` model predicts future stocks exponentially, and I want to do more research into the math behind the algorithm to see why that is. I believe that there are more complex variables I could add to this model, such as news sentiment or the state of the world's economy, that would help boost the predictions of this model
+
+Additionally, I want to spend more time learning about deployment so I can successfully implement this application on the web
+
+<br />
+<br />
+
+## Acknowledgements
+
+This project relied heavily on this paper by Rodolfo Saldanha, so thank you for putting out this information and making it accessible for beginners!
+
+<br />
+<br />
+
+## Author Info / Contact
+
+All of the code for this resository was written by me, Nishant Balepur. If you have any questions or concerns, feel free to reach out!
+
+- [GitHub](https://www.github.com/nbalepur)
+- [LinkedIn](https://www.linkedin.com/in/nishant-balepur-a03818107/)
+- [Email](mailto:balepur2@illinois.edu)
