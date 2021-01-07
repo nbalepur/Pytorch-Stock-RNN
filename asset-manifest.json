@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Pytorch-Stock-RNN/static/css/main.eb33f652.chunk.css",
-    "main.js": "/Pytorch-Stock-RNN/static/js/main.58df59f6.chunk.js",
-    "main.js.map": "/Pytorch-Stock-RNN/static/js/main.58df59f6.chunk.js.map",
+    "main.js": "/Pytorch-Stock-RNN/static/js/main.e70178da.chunk.js",
+    "main.js.map": "/Pytorch-Stock-RNN/static/js/main.e70178da.chunk.js.map",
     "runtime-main.js": "/Pytorch-Stock-RNN/static/js/runtime-main.d5d4c866.js",
     "runtime-main.js.map": "/Pytorch-Stock-RNN/static/js/runtime-main.d5d4c866.js.map",
     "static/css/2.5ca89f7f.chunk.css": "/Pytorch-Stock-RNN/static/css/2.5ca89f7f.chunk.css",
@@ -24,6 +24,6 @@
     "static/css/2.5ca89f7f.chunk.css",
     "static/js/2.7eee66ae.chunk.js",
     "static/css/main.eb33f652.chunk.css",
-    "static/js/main.58df59f6.chunk.js"
+    "static/js/main.e70178da.chunk.js"
   ]
 }
