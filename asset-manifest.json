@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/Pytorch-Stock-RNN/static/css/main.eb33f652.chunk.css",
+    "main.js": "/Pytorch-Stock-RNN/static/js/main.2f8afbd5.chunk.js",
+    "main.js.map": "/Pytorch-Stock-RNN/static/js/main.2f8afbd5.chunk.js.map",
+    "runtime-main.js": "/Pytorch-Stock-RNN/static/js/runtime-main.d5d4c866.js",
+    "runtime-main.js.map": "/Pytorch-Stock-RNN/static/js/runtime-main.d5d4c866.js.map",
+    "static/css/2.5ca89f7f.chunk.css": "/Pytorch-Stock-RNN/static/css/2.5ca89f7f.chunk.css",
+    "static/js/2.7eee66ae.chunk.js": "/Pytorch-Stock-RNN/static/js/2.7eee66ae.chunk.js",
+    "static/js/2.7eee66ae.chunk.js.map": "/Pytorch-Stock-RNN/static/js/2.7eee66ae.chunk.js.map",
+    "static/js/3.ce57fe21.chunk.js": "/Pytorch-Stock-RNN/static/js/3.ce57fe21.chunk.js",
+    "static/js/3.ce57fe21.chunk.js.map": "/Pytorch-Stock-RNN/static/js/3.ce57fe21.chunk.js.map",
+    "index.html": "/Pytorch-Stock-RNN/index.html",
+    "static/css/2.5ca89f7f.chunk.css.map": "/Pytorch-Stock-RNN/static/css/2.5ca89f7f.chunk.css.map",
+    "static/css/main.eb33f652.chunk.css.map": "/Pytorch-Stock-RNN/static/css/main.eb33f652.chunk.css.map",
+    "static/js/2.7eee66ae.chunk.js.LICENSE.txt": "/Pytorch-Stock-RNN/static/js/2.7eee66ae.chunk.js.LICENSE.txt",
+    "static/media/brain.0bff3fbf.png": "/Pytorch-Stock-RNN/static/media/brain.0bff3fbf.png",
+    "static/media/info.236a9e9b.png": "/Pytorch-Stock-RNN/static/media/info.236a9e9b.png",
+    "static/media/predict.17fc2e08.png": "/Pytorch-Stock-RNN/static/media/predict.17fc2e08.png",
+    "static/media/stock.557fa970.png": "/Pytorch-Stock-RNN/static/media/stock.557fa970.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d5d4c866.js",
+    "static/css/2.5ca89f7f.chunk.css",
+    "static/js/2.7eee66ae.chunk.js",
+    "static/css/main.eb33f652.chunk.css",
+    "static/js/main.2f8afbd5.chunk.js"
+  ]
+}
