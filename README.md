@@ -2,7 +2,9 @@
 
 This project's goal was to make predictions for stock closing prices using a Recurrent Neural Network and `Pytorch`. Afterwards, this project was deployed to Flask and linked with a React App
 
-**Note: You can view the project [here](https://rnn-stock-predictor.herokuapp.com) on Heroku, but it still has some server-side issues**
+**Note: A demo of the website can be found [here](https://nbalepur.github.io/Pytorch-Stock-RNN/)**
+
+* You can also view the project [here](https://rnn-stock-predictor.herokuapp.com) on Heroku with the Flask backend, but it still has some server-side issues*
 
 ![thumbnail](./demo/thumbnail.PNG)
 
@@ -180,7 +182,7 @@ Additionally, I want to spend more time learning about deployment so I can succe
 
 ## Acknowledgements
 
-This project relied heavily on this paper by Rodolfo Saldanha, so thank you for putting out this information and making it accessible for beginners!
+This project relied heavily on the work from [this paper](https://medium.com/swlh/stock-price-prediction-with-pytorch-37f52ae84632) by Rodolfo Saldanha, so thank you for putting out this information and making it accessible for beginners!
 
 <br />
 <br />
