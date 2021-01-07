@@ -4,7 +4,7 @@ This project's goal was to make predictions for stock closing prices using a Rec
 
 **Note: A demo of the website can be found [here](https://nbalepur.github.io/Pytorch-Stock-RNN/)**
 
-* You can also view the project [here](https://rnn-stock-predictor.herokuapp.com) on Heroku with the Flask backend, but it still has some server-side issues*
+*You can also view the project [here](https://rnn-stock-predictor.herokuapp.com) on Heroku with the Flask backend, but it still has some server-side issues*
 
 ![thumbnail](./demo/thumbnail.PNG)
 
